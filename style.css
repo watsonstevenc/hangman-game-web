@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.2em;
+  color: #e94560;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Gallows SVG */
+.gallows {
+  width: 200px;
+  height: 220px;
+  margin-bottom: 0.5rem;
+}
+
+.gallows line,
+.gallows circle {
+  stroke: #e0e0e0;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.gallows circle {
+  fill: none;
+}
+
+.body-part {
+  transition: opacity 0.3s ease;
+}
+
+.body-part.hidden {
+  opacity: 0;
+}
+
+/* Wrong guess counter */
+.wrong-count {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Word display */
+.word-display {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.letter-slot {
+  font-size: 2rem;
+  font-weight: bold;
+  width: 2rem;
+  border-bottom: 3px solid #e0e0e0;
+  text-align: center;
+  line-height: 2.2rem;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+/* Guessed letters */
+.guessed-letters {
+  font-size: 0.9rem;
+  color: #aaa;
+  min-height: 1.4rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+/* A–Z buttons */
+.letter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.letter-btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 2px solid #e94560;
+  background: transparent;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.letter-btn:hover:not(:disabled) {
+  background: #e94560;
+  color: #fff;
+}
+
+.letter-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+  border-color: #555;
+}
+
+.letter-btn.correct {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.letter-btn.wrong {
+  border-color: #e94560;
+  color: #e94560;
+}
+
+/* Result message */
+.result {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+}
+
+.result.win {
+  background: rgba(76, 175, 80, 0.15);
+  color: #4caf50;
+  border: 2px solid #4caf50;
+}
+
+.result.lose {
+  background: rgba(233, 69, 96, 0.15);
+  color: #e94560;
+  border: 2px solid #e94560;
+}
+
+.result.hidden {
+  display: none;
+}
+
+/* Play again button */
+.play-again {
+  padding: 0.7rem 2rem;
+  background: #e94560;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+
+.play-again:hover {
+  background: #c73652;
+}
+
+.play-again.hidden {
+  display: none;
+}
