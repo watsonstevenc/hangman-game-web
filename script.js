@@ -1,7 +1,69 @@
 const WORDS = [
-  'CASTLE', 'BRIDGE', 'KNIGHT', 'FOREST',
-  'DRAGON', 'SHIELD', 'POTION', 'QUEST',
-  'GOBLIN', 'LANTERN', 'ARROW', 'WIZARD'
+  // Animals
+  'TIGER',     'ELEPHANT',  'DOLPHIN',   'PENGUIN',   'GIRAFFE',   'PANTHER',   'FALCON',    'JAGUAR',    'BUFFALO',   'HAMSTER',
+  'LOBSTER',   'VULTURE',   'RACCOON',   'GORILLA',   'CHEETAH',   'LEOPARD',   'OSTRICH',   'SPARROW',   'WALRUS',    'OCTOPUS',
+  'PARROT',    'BEAVER',    'BADGER',    'COBRA',     'CONDOR',    'COYOTE',    'FERRET',    'IGUANA',    'LLAMA',     'MEERKAT',
+  'NARWHAL',   'OCELOT',    'PUFFIN',    'TOUCAN',    'WOMBAT',    'LEMUR',     'BISON',     'HYENA',     'PELICAN',   'PLATYPUS',
+  'TORTOISE',  'FLAMINGO',  'GAZELLE',   'WEASEL',    'MONGOOSE',  'BABOON',    'MACAW',     'MOOSE',     'OTTER',     'LYNX',
+
+  // Nature
+  'VOLCANO',   'GLACIER',   'CANYON',    'DESERT',    'THUNDER',   'TORNADO',   'RAINBOW',   'HORIZON',   'MEADOW',    'SWAMP',
+  'TUNDRA',    'RAPIDS',    'LAGOON',    'PLATEAU',   'BLIZZARD',  'AVALANCHE', 'BOULDER',   'CAVERN',    'SUMMIT',    'DELTA',
+  'GEYSER',    'MARSH',     'RAVINE',    'MONSOON',   'TYPHOON',   'CYCLONE',   'ESTUARY',   'FJORD',     'SAVANNA',   'JUNGLE',
+  'BAYOU',     'PRAIRIE',   'WATERFALL', 'FOREST',    'LAVA',      'MAGMA',     'VORTEX',    'TSUNAMI',   'BEDROCK',   'CREVASSE',
+
+  // Fantasy
+  'DRAGON',    'WIZARD',    'KNIGHT',    'CASTLE',    'GOBLIN',    'SHIELD',    'POTION',    'DUNGEON',   'PHANTOM',   'VAMPIRE',
+  'SORCERER',  'CURSED',    'RUNE',      'GOLEM',     'WRAITH',    'TROLL',     'ORACLE',    'PALADIN',   'RANGER',    'ROGUE',
+  'AMULET',    'SCROLL',    'FORTRESS',  'GRIFFIN',   'PHOENIX',   'PEGASUS',   'UNICORN',   'KRAKEN',    'CHIMERA',   'HYDRA',
+  'SPHINX',    'BANSHEE',   'WARLOCK',   'DRUID',     'SHAMAN',    'BASILISK',  'QUEST',     'MINOTAUR',  'CYCLOPS',   'ENCHANTED',
+
+  // Food
+  'PIZZA',     'BURGER',    'MANGO',     'CHERRY',    'WAFFLE',    'PRETZEL',   'NOODLE',    'CHEDDAR',   'BISCUIT',   'MUFFIN',
+  'PANCAKE',   'SAUSAGE',   'MUSTARD',   'AVOCADO',   'COCONUT',   'LEMON',     'GARLIC',    'PEPPER',    'GINGER',    'SPINACH',
+  'BROCCOLI',  'ALMOND',    'WALNUT',    'PEANUT',    'CARAMEL',   'VANILLA',   'CINNAMON',  'PAPRIKA',   'TRUFFLE',   'SHRIMP',
+  'OYSTER',    'TUNA',      'ANCHOVY',   'SCALLOP',   'MUSSEL',    'BRISKET',   'CHORIZO',   'RICOTTA',   'TAHINI',    'QUINOA',
+  'HUMMUS',    'KIMCHI',    'WASABI',    'TAMALE',    'BURRITO',   'DUMPLING',  'NOUGAT',    'BAGUETTE',  'SORBET',    'CUSTARD',
+
+  // Objects
+  'LANTERN',   'COMPASS',   'BICYCLE',   'CAMERA',    'TRUMPET',   'HAMMER',    'LADDER',    'MIRROR',    'PILLOW',    'BLANKET',
+  'TELESCOPE', 'CANDLE',    'NEEDLE',    'ANCHOR',    'BUCKET',    'BARREL',    'SHOVEL',    'WRENCH',    'CHISEL',    'MAGNET',
+  'FUNNEL',    'CAPSULE',   'PULLEY',    'LANYARD',   'ZIPPER',    'SATCHEL',   'THERMOS',   'GOBLET',    'CHALICE',   'SCABBARD',
+  'QUIVER',    'BELLOWS',   'MORTAR',    'PESTLE',    'SPINDLE',   'SEXTANT',   'PORTHOLE',  'RUDDER',    'ARROW',     'BRIDGE',
+
+  // Places
+  'VILLAGE',   'HARBOR',    'AIRPORT',   'STADIUM',   'LIBRARY',   'MUSEUM',    'FACTORY',   'GARDEN',    'TEMPLE',    'PALACE',
+  'COTTAGE',   'SUBURB',    'BAZAAR',    'MARINA',    'CHAPEL',    'CLINIC',    'BUNKER',    'PYRAMID',   'COLOSSEUM', 'CATHEDRAL',
+  'MONASTERY', 'CITADEL',   'TAVERN',    'BARRACKS',  'ARENA',     'GREENHOUSE','OBSERVATORY','LIGHTHOUSE','COURTYARD', 'QUARRY',
+
+  // Space
+  'ROCKET',    'PLANET',    'GALAXY',    'NEBULA',    'COMET',     'SATURN',    'JUPITER',   'ASTEROID',  'COSMOS',    'ORBIT',
+  'PULSAR',    'QUASAR',    'ECLIPSE',   'SOLSTICE',  'AURORA',    'METEOR',    'GRAVITY',   'EQUINOX',   'ZENITH',    'SUPERNOVA',
+
+  // Music
+  'GUITAR',    'VIOLIN',    'FLUTE',     'CLARINET',  'TROMBONE',  'MANDOLIN',  'UKULELE',   'BANJO',     'CELLO',     'SONATA',
+  'RHYTHM',    'MELODY',    'CHORUS',    'BALLAD',    'SYMPHONY',  'OCTAVE',    'TEMPO',     'CHORD',     'HARMONY',   'CADENCE',
+
+  // Gems and minerals
+  'MARBLE',    'CRYSTAL',   'OBSIDIAN',  'GRANITE',   'QUARTZ',    'AMBER',     'JASPER',    'TOPAZ',     'OPAL',      'EMERALD',
+  'SAPPHIRE',  'DIAMOND',   'AMETHYST',  'GARNET',    'ONYX',      'PEARL',     'BRONZE',    'COBALT',    'TITANIUM',  'TUNGSTEN',
+
+  // Plants
+  'BAMBOO',    'CACTUS',    'ORCHID',    'WILLOW',    'CYPRESS',   'REDWOOD',   'MAPLE',     'CEDAR',     'MAGNOLIA',  'JASMINE',
+  'LAVENDER',  'THISTLE',   'CLOVER',    'NETTLE',    'FUCHSIA',   'DAHLIA',    'MARIGOLD',  'FOXGLOVE',  'HEMLOCK',   'JUNIPER',
+
+  // Science
+  'OXYGEN',    'NITROGEN',  'HELIUM',    'ARGON',     'SILICON',   'CALCIUM',   'PROTON',    'NEUTRON',   'ELECTRON',  'PHOTON',
+  'POLYMER',   'NETWORK',   'ROUTER',    'FIREWALL',  'KERNEL',    'CIPHER',    'VECTOR',    'MODULE',    'BINARY',    'ISOTOPE',
+
+  // Concepts
+  'COURAGE',   'WISDOM',    'JUSTICE',   'FREEDOM',   'LOYALTY',   'HONOR',     'VIRTUE',    'PATIENCE',  'KINDNESS',  'STRENGTH',
+  'ANCIENT',   'FROZEN',    'HOLLOW',    'TWISTED',   'GLOWING',   'BURNING',   'SOARING',   'VIBRANT',   'ETHEREAL',  'OMINOUS',
+  'SERENE',    'RADIANT',   'CRYPTIC',   'SHADOW',    'RIDDLE',    'LEGEND',    'MYTH',      'FABLE',     'MYSTICAL',  'WHISPER',
+
+  // Mythology
+  'OLYMPUS',   'TITAN',     'MEDUSA',    'TRITON',    'HERMES',    'ARTEMIS',   'ATHENA',    'POSEIDON',  'NEMESIS',   'ACHILLES',
+  'ODYSSEY',   'CENTAUR',   'SATYR',     'VALKYRIE',  'VALHALLA',  'RAGNAROK',  'FENRIR',    'ZEUS',      'ODIN',      'THOR',
 ];
 
 // SVG body parts revealed in order as wrong guesses accumulate
