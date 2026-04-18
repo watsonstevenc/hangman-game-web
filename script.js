@@ -1,69 +1,54 @@
 const WORDS = [
   // Animals
-  'TIGER',     'ELEPHANT',  'DOLPHIN',   'PENGUIN',   'GIRAFFE',   'PANTHER',   'FALCON',    'JAGUAR',    'BUFFALO',   'HAMSTER',
-  'LOBSTER',   'VULTURE',   'RACCOON',   'GORILLA',   'CHEETAH',   'LEOPARD',   'OSTRICH',   'SPARROW',   'WALRUS',    'OCTOPUS',
-  'PARROT',    'BEAVER',    'BADGER',    'COBRA',     'CONDOR',    'COYOTE',    'FERRET',    'IGUANA',    'LLAMA',     'MEERKAT',
-  'NARWHAL',   'OCELOT',    'PUFFIN',    'TOUCAN',    'WOMBAT',    'LEMUR',     'BISON',     'HYENA',     'PELICAN',   'PLATYPUS',
-  'TORTOISE',  'FLAMINGO',  'GAZELLE',   'WEASEL',    'MONGOOSE',  'BABOON',    'MACAW',     'MOOSE',     'OTTER',     'LYNX',
+  'TIGER',      'ELEPHANT',   'DOLPHIN',    'PENGUIN',    'GIRAFFE',    'HAMSTER',    'RACCOON',    'GORILLA',    'CHEETAH',    'OSTRICH',
+  'SPARROW',    'OCTOPUS',    'PARROT',     'BEAVER',     'TOUCAN',     'FLAMINGO',   'BABOON',     'MACAW',      'MOOSE',      'OTTER',
+  'RABBIT',     'PANDA',      'KOALA',      'ZEBRA',      'CAMEL',      'TURTLE',     'EAGLE',      'PEACOCK',    'KANGAROO',   'JAGUAR',
+  'MONKEY',     'LIZARD',     'SQUIRREL',   'REINDEER',   'PLATYPUS',   'LEOPARD',    'WALRUS',     'PELICAN',    'FALCON',     'BUFFALO',
+  'PARROT',     'CHIPMUNK',   'HEDGEHOG',   'SEAHORSE',   'STARFISH',   'LADYBUG',    'BUTTERFLY',  'BUMBLEBEE',  'CATERPILLAR','DRAGONFLY',
 
-  // Nature
-  'VOLCANO',   'GLACIER',   'CANYON',    'DESERT',    'THUNDER',   'TORNADO',   'RAINBOW',   'HORIZON',   'MEADOW',    'SWAMP',
-  'TUNDRA',    'RAPIDS',    'LAGOON',    'PLATEAU',   'BLIZZARD',  'AVALANCHE', 'BOULDER',   'CAVERN',    'SUMMIT',    'DELTA',
-  'GEYSER',    'MARSH',     'RAVINE',    'MONSOON',   'TYPHOON',   'CYCLONE',   'ESTUARY',   'FJORD',     'SAVANNA',   'JUNGLE',
-  'BAYOU',     'PRAIRIE',   'WATERFALL', 'FOREST',    'LAVA',      'MAGMA',     'VORTEX',    'TSUNAMI',   'BEDROCK',   'CREVASSE',
+  // Food and treats
+  'PIZZA',      'BURGER',     'APPLE',      'BANANA',     'ORANGE',     'GRAPES',     'MANGO',      'CHERRY',     'PEACH',      'COOKIE',
+  'CAKE',       'CANDY',      'DONUT',      'WAFFLE',     'PANCAKE',    'MUFFIN',     'PRETZEL',    'POPCORN',    'HOTDOG',     'TACO',
+  'PASTA',      'CHEESE',     'HONEY',      'CHOCOLATE',  'STRAWBERRY', 'BLUEBERRY',  'WATERMELON', 'PINEAPPLE',  'KETCHUP',    'MUSTARD',
+  'PEANUT',     'COCONUT',    'LOLLIPOP',   'BROWNIE',    'CUPCAKE',    'LEMON',      'NOODLE',     'DUMPLING',   'BURRITO',    'BISCUIT',
+  'CARAMEL',    'VANILLA',    'CINNAMON',   'AVOCADO',    'BROCCOLI',   'SPINACH',    'CARROT',     'POTATO',     'TOMATO',     'SANDWICH',
 
-  // Fantasy
-  'DRAGON',    'WIZARD',    'KNIGHT',    'CASTLE',    'GOBLIN',    'SHIELD',    'POTION',    'DUNGEON',   'PHANTOM',   'VAMPIRE',
-  'SORCERER',  'CURSED',    'RUNE',      'GOLEM',     'WRAITH',    'TROLL',     'ORACLE',    'PALADIN',   'RANGER',    'ROGUE',
-  'AMULET',    'SCROLL',    'FORTRESS',  'GRIFFIN',   'PHOENIX',   'PEGASUS',   'UNICORN',   'KRAKEN',    'CHIMERA',   'HYDRA',
-  'SPHINX',    'BANSHEE',   'WARLOCK',   'DRUID',     'SHAMAN',    'BASILISK',  'QUEST',     'MINOTAUR',  'CYCLOPS',   'ENCHANTED',
+  // Fantasy and fairy tales
+  'DRAGON',     'WIZARD',     'KNIGHT',     'CASTLE',     'GOBLIN',     'SHIELD',     'POTION',     'PRINCESS',   'MERMAID',    'UNICORN',
+  'PHOENIX',    'PEGASUS',    'FAIRY',      'WITCH',      'GIANT',      'TREASURE',   'MAGIC',      'QUEST',      'ADVENTURE',  'MONSTER',
+  'PIRATE',     'NINJA',      'ROBOT',      'ALIEN',      'SUPERHERO',  'SIDEKICK',   'VILLAIN',    'CRYSTAL',    'CROWN',      'SWORD',
+  'TROLL',      'GRIFFIN',    'DRAGON',     'PUZZLE',     'RIDDLE',     'LEGEND',     'HERO',       'BRAVE',      'ENCHANTED',  'RAINBOW',
 
-  // Food
-  'PIZZA',     'BURGER',    'MANGO',     'CHERRY',    'WAFFLE',    'PRETZEL',   'NOODLE',    'CHEDDAR',   'BISCUIT',   'MUFFIN',
-  'PANCAKE',   'SAUSAGE',   'MUSTARD',   'AVOCADO',   'COCONUT',   'LEMON',     'GARLIC',    'PEPPER',    'GINGER',    'SPINACH',
-  'BROCCOLI',  'ALMOND',    'WALNUT',    'PEANUT',    'CARAMEL',   'VANILLA',   'CINNAMON',  'PAPRIKA',   'TRUFFLE',   'SHRIMP',
-  'OYSTER',    'TUNA',      'ANCHOVY',   'SCALLOP',   'MUSSEL',    'BRISKET',   'CHORIZO',   'RICOTTA',   'TAHINI',    'QUINOA',
-  'HUMMUS',    'KIMCHI',    'WASABI',    'TAMALE',    'BURRITO',   'DUMPLING',  'NOUGAT',    'BAGUETTE',  'SORBET',    'CUSTARD',
+  // School and learning
+  'PENCIL',     'ERASER',     'NOTEBOOK',   'BACKPACK',   'TEACHER',    'LIBRARY',    'CLASSROOM',  'HOMEWORK',   'SPELLING',   'SCIENCE',
+  'READING',    'WRITING',    'DRAWING',    'PAINTING',   'NUMBERS',    'LETTERS',    'CALENDAR',   'COMPUTER',   'CRAYON',     'SCISSORS',
+  'PLAYGROUND', 'LUNCHBOX',   'CHALKBOARD', 'TRIANGLE',   'RECTANGLE',  'SUBTRACT',   'MULTIPLY',   'FRACTION',   'SENTENCE',   'CHAPTER',
 
-  // Objects
-  'LANTERN',   'COMPASS',   'BICYCLE',   'CAMERA',    'TRUMPET',   'HAMMER',    'LADDER',    'MIRROR',    'PILLOW',    'BLANKET',
-  'TELESCOPE', 'CANDLE',    'NEEDLE',    'ANCHOR',    'BUCKET',    'BARREL',    'SHOVEL',    'WRENCH',    'CHISEL',    'MAGNET',
-  'FUNNEL',    'CAPSULE',   'PULLEY',    'LANYARD',   'ZIPPER',    'SATCHEL',   'THERMOS',   'GOBLET',    'CHALICE',   'SCABBARD',
-  'QUIVER',    'BELLOWS',   'MORTAR',    'PESTLE',    'SPINDLE',   'SEXTANT',   'PORTHOLE',  'RUDDER',    'ARROW',     'BRIDGE',
-
-  // Places
-  'VILLAGE',   'HARBOR',    'AIRPORT',   'STADIUM',   'LIBRARY',   'MUSEUM',    'FACTORY',   'GARDEN',    'TEMPLE',    'PALACE',
-  'COTTAGE',   'SUBURB',    'BAZAAR',    'MARINA',    'CHAPEL',    'CLINIC',    'BUNKER',    'PYRAMID',   'COLOSSEUM', 'CATHEDRAL',
-  'MONASTERY', 'CITADEL',   'TAVERN',    'BARRACKS',  'ARENA',     'GREENHOUSE','OBSERVATORY','LIGHTHOUSE','COURTYARD', 'QUARRY',
+  // Nature and weather
+  'RAINBOW',    'THUNDER',    'FLOWER',     'FOREST',     'JUNGLE',     'DESERT',     'MOUNTAIN',   'VOLCANO',    'TORNADO',    'BLIZZARD',
+  'WATERFALL',  'OCEAN',      'ISLAND',     'MEADOW',     'RIVER',      'BEACH',      'SNOWFLAKE',  'SUNSHINE',   'RAINDROP',   'MUSHROOM',
+  'POND',       'CAVE',       'BOULDER',    'CACTUS',     'BAMBOO',     'WILLOW',     'MAPLE',      'CLOVER',     'DAISY',      'SUNFLOWER',
+  'MARIGOLD',   'LAVENDER',   'TULIP',      'ROSEBUD',    'PINECONE',   'ACORN',      'SEASHELL',   'PEBBLE',     'CRYSTAL',    'DIAMOND',
 
   // Space
-  'ROCKET',    'PLANET',    'GALAXY',    'NEBULA',    'COMET',     'SATURN',    'JUPITER',   'ASTEROID',  'COSMOS',    'ORBIT',
-  'PULSAR',    'QUASAR',    'ECLIPSE',   'SOLSTICE',  'AURORA',    'METEOR',    'GRAVITY',   'EQUINOX',   'ZENITH',    'SUPERNOVA',
+  'ROCKET',     'PLANET',     'GALAXY',     'COMET',      'SATURN',     'JUPITER',    'ASTEROID',   'METEOR',     'ECLIPSE',    'AURORA',
+  'MOONLIGHT',  'STARDUST',   'TELESCOPE',  'ASTRONAUT',  'SPACESHIP',  'SUPERNOVA',  'NEBULA',     'SUNRISE',    'SUNSET',     'SHOOTING',
 
-  // Music
-  'GUITAR',    'VIOLIN',    'FLUTE',     'CLARINET',  'TROMBONE',  'MANDOLIN',  'UKULELE',   'BANJO',     'CELLO',     'SONATA',
-  'RHYTHM',    'MELODY',    'CHORUS',    'BALLAD',    'SYMPHONY',  'OCTAVE',    'TEMPO',     'CHORD',     'HARMONY',   'CADENCE',
+  // Sports and activities
+  'SOCCER',     'BASEBALL',   'TENNIS',     'SWIMMING',   'SKATING',    'CYCLING',    'DANCING',    'SINGING',    'JUMPING',    'RUNNING',
+  'CLIMBING',   'FISHING',    'CAMPING',    'HIKING',     'SURFING',    'FOOTBALL',   'BASKETBALL', 'BOWLING',    'GYMNASTICS', 'KARATE',
 
-  // Gems and minerals
-  'MARBLE',    'CRYSTAL',   'OBSIDIAN',  'GRANITE',   'QUARTZ',    'AMBER',     'JASPER',    'TOPAZ',     'OPAL',      'EMERALD',
-  'SAPPHIRE',  'DIAMOND',   'AMETHYST',  'GARNET',    'ONYX',      'PEARL',     'BRONZE',    'COBALT',    'TITANIUM',  'TUNGSTEN',
+  // Toys and fun
+  'BALLOON',    'BICYCLE',    'SKATEBOARD', 'SCOOTER',    'PUZZLE',     'FRISBEE',    'PUPPET',     'COSTUME',    'KITE',       'SWING',
+  'SANDBOX',    'TRAMPOLINE', 'PINWHEEL',   'TAMBOURINE', 'TELESCOPE',  'MAGNIFIER',  'BINOCULARS', 'COMPASS',    'LANTERN',    'CAMERA',
 
-  // Plants
-  'BAMBOO',    'CACTUS',    'ORCHID',    'WILLOW',    'CYPRESS',   'REDWOOD',   'MAPLE',     'CEDAR',     'MAGNOLIA',  'JASMINE',
-  'LAVENDER',  'THISTLE',   'CLOVER',    'NETTLE',    'FUCHSIA',   'DAHLIA',    'MARIGOLD',  'FOXGLOVE',  'HEMLOCK',   'JUNIPER',
+  // Colors and describing words
+  'ORANGE',     'PURPLE',     'YELLOW',     'SILVER',     'GOLDEN',     'VIOLET',     'CRIMSON',    'TURQUOISE',  'SPARKLE',    'GLITTER',
+  'FROZEN',     'GLOWING',    'SOARING',    'BOUNCING',   'GIGGLING',   'SPLASHING',  'FLUFFY',     'STRIPED',    'SPOTTED',    'SHINY',
 
-  // Science
-  'OXYGEN',    'NITROGEN',  'HELIUM',    'ARGON',     'SILICON',   'CALCIUM',   'PROTON',    'NEUTRON',   'ELECTRON',  'PHOTON',
-  'POLYMER',   'NETWORK',   'ROUTER',    'FIREWALL',  'KERNEL',    'CIPHER',    'VECTOR',    'MODULE',    'BINARY',    'ISOTOPE',
-
-  // Concepts
-  'COURAGE',   'WISDOM',    'JUSTICE',   'FREEDOM',   'LOYALTY',   'HONOR',     'VIRTUE',    'PATIENCE',  'KINDNESS',  'STRENGTH',
-  'ANCIENT',   'FROZEN',    'HOLLOW',    'TWISTED',   'GLOWING',   'BURNING',   'SOARING',   'VIBRANT',   'ETHEREAL',  'OMINOUS',
-  'SERENE',    'RADIANT',   'CRYPTIC',   'SHADOW',    'RIDDLE',    'LEGEND',    'MYTH',      'FABLE',     'MYSTICAL',  'WHISPER',
-
-  // Mythology
-  'OLYMPUS',   'TITAN',     'MEDUSA',    'TRITON',    'HERMES',    'ARTEMIS',   'ATHENA',    'POSEIDON',  'NEMESIS',   'ACHILLES',
-  'ODYSSEY',   'CENTAUR',   'SATYR',     'VALKYRIE',  'VALHALLA',  'RAGNAROK',  'FENRIR',    'ZEUS',      'ODIN',      'THOR',
+  // Places kids know
+  'VILLAGE',    'AIRPORT',    'STADIUM',    'LIBRARY',    'MUSEUM',     'GARDEN',     'PALACE',     'COTTAGE',    'LIGHTHOUSE', 'TREEHOUSE',
+  'CLASSROOM',  'HOSPITAL',   'BAKERY',     'TOYSTORE',   'AQUARIUM',   'CARNIVAL',   'CIRCUS',     'FARMHOUSE',  'GREENHOUSE', 'PLAYGROUND',
 ];
 
 // SVG body parts revealed in order as wrong guesses accumulate
